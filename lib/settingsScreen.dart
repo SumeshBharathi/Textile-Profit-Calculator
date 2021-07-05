@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'variables.dart';
 import 'dart:io';
+import 'warpScreen.dart';
 
 
 class SettingsScreen extends StatefulWidget {
@@ -44,14 +45,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(4.0),
                     child: Container(
                       width: 200.0,
-                        child: Text('Cloth Pic ', style: TextStyle(fontSize: 20.0),)
+                        child: Text('Cloth Pic ', style: TextStyle(fontSize: 17.0),)
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(4.0),
                     child: Container(
                       width: 100.0,
                       height: 40.0,
@@ -77,19 +78,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(4.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(4.0),
                     child: Container(
                         width: 200.0,
-                        child: Text('Cloth width (inch) ', style: TextStyle(fontSize: 20.0),)
+                        child: Text('Cloth width (inch) ', style: TextStyle(fontSize: 17.0),)
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(4.0),
                     child: Container(
                       width: 100.0,
                       height: 40.0,
@@ -115,19 +116,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(4.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(4.0),
                     child: Container(
                         width: 200.0,
-                        child: Text('Loom Charge  ₹', style: TextStyle(fontSize: 20.0),)
+                        child: Text('Loom Charge  ₹', style: TextStyle(fontSize: 17.0),)
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(4.0),
                     child: Container(
                       width: 100.0,
                       height: 40.0,
@@ -154,20 +155,20 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(4.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(4.0),
                     child: Container(
                         width: 200.0,
-                        child: Text('Warp Count ', style: TextStyle(fontSize: 20.0),)
+                        child: Text('Warp Count ', style: TextStyle(fontSize: 17.0),)
                     ),
                   ),
 
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(4.0),
                     child: Container(
                       width: 100.0,
                       height: 40.0,
@@ -194,19 +195,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(4.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(4.0),
                     child: Container(
                         width: 200.0,
-                        child: Text('Warp (Total threads)', style: TextStyle(fontSize: 20.0),)
+                        child: Text('Warp (Total threads)', style: TextStyle(fontSize: 17.0),)
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(4.0),
                     child: Container(
                       width: 100.0,
                       height: 40.0,
@@ -233,20 +234,20 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(4.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(4.0),
                     child: Container(
                         width: 200.0,
-                        child: Text('Sizing Charge  ₹', style: TextStyle(fontSize: 20.0),)
+                        child: Text('Sizing Charge  ₹', style: TextStyle(fontSize: 17.0),)
                     ),
                   ),
 
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(4.0),
                     child: Container(
                       width: 100.0,
                       height: 40.0,
@@ -273,19 +274,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(4.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(4.0),
                     child: Container(
                         width: 200.0,
-                        child: Text('Other Charges  ₹', style: TextStyle(fontSize: 20.0),)
+                        child: Text('Other Charges  ₹', style: TextStyle(fontSize: 17.0),)
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(4.0),
                     child: Container(
                       width: 100.0,
                       height: 40.0,
@@ -360,13 +361,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   },
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Colors.pink[400],
+                      color: Colors.red[400],
                       borderRadius: BorderRadius.circular(6.0),
                     ),
                     child:
                     Padding(
                       padding: const EdgeInsets.all(10.0),
-                      child: Text('Reset to default', style: TextStyle(color: Colors.white,fontSize: 20.0)),
+                      child: Text('Reset', style: TextStyle(color: Colors.white,fontSize: 20.0)),
                     ),
                   ),
                 ),
@@ -391,19 +392,23 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         'warpSizingCharge' : warpSizingCharge,'warpCount': warpCount,'warpTotalThreads':warpTotalThreads}];
                       storage.setItem('secretkey', list);
                       print('Saved to storage! ' + list.toString());
+
                       showDialog(
                         context: context,
                         builder: (BuildContext context) {
                           return AlertDialog(
-                            title: Text('Saved successsfully !', style: TextStyle(fontSize: 40.0,),textAlign: TextAlign.center,),
+                            title: Text('Saved successfully !', style: TextStyle(fontSize: 30.0,),textAlign: TextAlign.center,),
 
                             actions: <Widget>[
                               FlatButton(
 
                                 child: Text('Close', style: TextStyle(fontSize: 20.0),),
                                 onPressed: (){
+
+
                                   Navigator.of(context).pop();
                                   Navigator.of(context).pop();
+
                                 },
                               )
                             ],

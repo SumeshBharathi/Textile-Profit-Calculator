@@ -18,6 +18,20 @@ class WarpScreen extends StatefulWidget {
 class _WarpScreenState extends State<WarpScreen> {
 
 
+  void refresh(){
+    setState(() {
+      var res =  storage.getItem('secretkey');
+      print('got');
+      clothPicVar = clothPicVar;
+      clothWidthVar = res[0]['clothWidthVar'];
+      loomChargeVar = res[0]['loomChargeVar'];
+      otherChargesVar =  res[0]['otherChargesVar'];
+      warpSizingCharge = res[0]['warpSizingCharge'];
+      warpCount =  warpCount;
+      print(warpCount);
+    });
+  }
+
 
 @override
   void initState() {
@@ -29,6 +43,7 @@ class _WarpScreenState extends State<WarpScreen> {
   Widget build(BuildContext context) {
     ((){
       var res =  storage.getItem('secretkey');
+      print('yes');
       print(res);
       if(res!= null && res[0]['status'] == 'true' && !flag){
         flag = true;
@@ -55,8 +70,8 @@ class _WarpScreenState extends State<WarpScreen> {
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: <Widget>[
-                  flag ? Text('Warp', style: TextStyle(fontSize: 30.0),) : Text('WarP', style: TextStyle(fontSize: 30.0),),
-                  SizedBox(height: 50.0,),
+                  flag ? Text('Warp', style: TextStyle(fontSize: 30.0),) : Text('warp', style: TextStyle(fontSize: 30.0),),
+                  SizedBox(height: 20.0,),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
@@ -105,7 +120,7 @@ class _WarpScreenState extends State<WarpScreen> {
               child: Column(
                 children: <Widget>[
                   Text('Wept', style: TextStyle(fontSize: 30.0),),
-                  SizedBox(height: 50.0,),
+                  SizedBox(height: 20.0,),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
@@ -168,15 +183,15 @@ class _WarpScreenState extends State<WarpScreen> {
                               context: context,
                               builder: (BuildContext context) {
                             return AlertDialog(
-                              title: Text('Net Total value', style: TextStyle(fontSize: 30.0,),textAlign: TextAlign.center,),
+                              title: Text('Net Total value', style: TextStyle(fontSize: 28.0,color: Colors.blue),textAlign: TextAlign.center,),
                               content: Container(
-                                height: 280.0,
+                                height: 250.0,
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
                                     Text('Warp Cost:   ₹ ' + totalWarp.toString() + '\nWept Cost:   ₹ ' + totalWept.toString()+ '\nLoom cost:   ₹ ' + (clothPicVar * loomChargeVar).toString()
-                                    + '\nOther costs: ₹ '+ otherChargesVar.toString(), style: TextStyle(fontSize: 20.0),),
-                                    SizedBox(height: 20.0,),
+                                    + '\nOther costs: ₹ '+ otherChargesVar.toString(), style: TextStyle(fontSize: 16.0),),
+                                    SizedBox(height: 50.0,),
                                     Text('₹ ' + (totalWept+totalWarp+(clothPicVar * loomChargeVar)+otherChargesVar).toStringAsFixed(2), style: TextStyle(fontSize: 40.0),)
                                   ],
                                 ),
@@ -184,7 +199,7 @@ class _WarpScreenState extends State<WarpScreen> {
                               actions: <Widget>[
                                 FlatButton(
 
-                                  child: Text('Close', style: TextStyle(fontSize: 20.0),),
+                                  child: Text('Close', style: TextStyle(fontSize: 20.0,color: Colors.red),),
                                   onPressed: (){
                                     Navigator.of(context).pop();
                                   },
@@ -206,3 +221,5 @@ class _WarpScreenState extends State<WarpScreen> {
     );
   }
 }
+
+WarpScreen obj;
