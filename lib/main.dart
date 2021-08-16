@@ -1,63 +1,80 @@
 import 'package:flutter/material.dart';
-import 'package:textile_calculator/warpScreen.dart';
-import 'drawerScreen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:textile_calculator/HomeScreen.dart';
+import 'package:textile_calculator/settingsScreen.dart';
 import 'variables.dart';
-import 'package:flutter/services.dart';
+import 'about.dart';
 
+// initSharedPref() async {
+//   prefs = await SharedPreferences.getInstance();
+// }
 
 void main() {
-
-  runApp(MyApp());
+  // initSharedPref();
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    theme: ThemeData(primaryColor: Colors.white),
+    home: MyApp(),
+  ));
 }
 
-class MyApp extends StatelessWidget {
-
-
-  // This widget is the root of your application.
+class MyApp extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    print(storage.getItem('secretkey'));
-    return MaterialApp(
-      title: 'Textile Calculator',
-      theme: ThemeData(
+  _MyAppState createState() => _MyAppState();
+}
 
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: MyHomePage(title: 'Textile Calculator'),
-    );
+class _MyAppState extends State<MyApp> {
+  void refreshParentState() {
+    setState(() {});
   }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(
-        statusBarColor: Colors.black.withOpacity(0), //top bar color
-        statusBarIconBrightness: Brightness.dark, //top bar icons
-        systemNavigationBarColor: Colors.black, //bottom bar color
-        systemNavigationBarIconBrightness: Brightness.light, //bottom bar icons
-      ),
-    );
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
-        brightness: Brightness.light,
+        title: Row(
+          children: [
+            Text('Textile Calculator (Loom)'),
+            Expanded(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Scaffold(
+                                  body: SettingsScreen(refreshParentState))));
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Icon(Icons.settings),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Scaffold(
+                                  appBar: AppBar(
+                                    title: Text('About'),
+                                  ),
+                                  body: AboutPage(false))));
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Icon(Icons.info_outline),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
-
-      drawer: DrawerScreen(),
       body: WarpScreen(),
     );
   }
 }
-
-

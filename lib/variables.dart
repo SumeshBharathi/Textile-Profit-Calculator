@@ -1,4 +1,7 @@
 import 'package:localstorage/localstorage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+SharedPreferences prefs;
 
 double warpBagWeight = 50;
 double warpSizingCharge = 19;
@@ -16,4 +19,4 @@ double otherChargesVar = 0.15;
 
 bool flag = false;
 
-final LocalStorage storage = new LocalStorage('secretkey');
+final LocalStorage storage = new LocalStorage('*%^@!%%%K.dgW');

@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
 
-Widget itemWidget(String lVal, String rVal){
+Widget itemWidget(String lVal, String rVal) {
   return Padding(
     padding: const EdgeInsets.all(8.0),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Container(
-          width: 210.0,
-            child: Text(lVal, style: TextStyle(fontSize: 20.0),)
+            child: Text(
+          lVal,
+          style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
+        )),
+        SizedBox(
+          height: 10.0,
         ),
-        SizedBox(width: 30.0,),
-        Text(rVal, style: TextStyle(fontSize: 20.0),),
-
+        Text(
+          rVal,
+          style: TextStyle(fontSize: 18.0),
+        ),
       ],
     ),
   );
