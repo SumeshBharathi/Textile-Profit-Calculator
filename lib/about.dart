@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
+import 'package:in_app_review/in_app_review.dart';
 import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
@@ -23,6 +24,7 @@ class AboutPage extends StatefulWidget {
 }
 
 class _AboutPageState extends State<AboutPage> {
+  final InAppReview inAppReview = InAppReview.instance;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -140,27 +142,48 @@ class _AboutPageState extends State<AboutPage> {
                     children: <Widget>[
                       GestureDetector(
                         onTap: () async {
-                          // FlutterWebBrowser.openWebPage(
-                          //   url: 'https://www.sumeshbharathi.com/#contact',
-                          //   customTabsOptions: CustomTabsOptions(
-                          //     colorScheme: CustomTabsColorScheme.dark,
-                          //     toolbarColor: Colors.black,
-                          //     secondaryToolbarColor: Colors.green,
-                          //     navigationBarColor: Colors.black,
-                          //     addDefaultShareMenuItem: true,
-                          //     instantAppsEnabled: true,
-                          //     showTitle: true,
-                          //     urlBarHidingEnabled: true,
-                          //   ),
-                          //   safariVCOptions: SafariViewControllerOptions(
-                          //     barCollapsingEnabled: true,
-                          //     preferredBarTintColor: Colors.green,
-                          //     preferredControlTintColor: Colors.amber,
-                          //     dismissButtonStyle:
-                          //         SafariViewControllerDismissButtonStyle.close,
-                          //     modalPresentationCapturesStatusBarAppearance: true,
-                          //   ),
-                          // );
+                          inAppReview.openStoreListing(
+                              appStoreId: '...', microsoftStoreId: '...');
+                        },
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: Card(
+                            color: widget.isDarkMode
+                                ? Colors.white54
+                                : Colors.green,
+                            child: Container(
+                                height: 50,
+                                width: 260,
+                                alignment: Alignment.center,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    SizedBox(
+                                      width: 5.0,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(2.0),
+                                      child: Text(
+                                        'Give a rating',
+                                        style: GoogleFonts.questrial(
+                                            fontSize: 18, color: Colors.white),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 6.0,
+                                    ),
+                                    Icon(
+                                      Icons.star_outlined,
+                                      size: 24,
+                                      color: Colors.white,
+                                    )
+                                  ],
+                                )),
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () async {
                           setState(() {
                             print(widget.isDarkMode);
                             Share.share(
@@ -169,7 +192,7 @@ class _AboutPageState extends State<AboutPage> {
                           });
                         },
                         child: ClipRRect(
-                          borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                          borderRadius: BorderRadius.all(Radius.circular(10.0)),
                           child: Card(
                             color: widget.isDarkMode
                                 ? Colors.white54

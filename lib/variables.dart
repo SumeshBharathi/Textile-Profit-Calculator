@@ -1,7 +1,5 @@
+import 'package:flutter/foundation.dart';
 import 'package:localstorage/localstorage.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
-SharedPreferences prefs;
 
 double warpBagWeight = 50;
 double warpSizingCharge = 19;
@@ -19,4 +17,9 @@ double otherChargesVar = 0.15;
 
 bool flag = false;
 
+var adUnitId = kDebugMode
+    ? "ca-app-pub-3940256099942544/2247696110"
+    : "ca-app-pub-2086974693112732/2030265068";
+
 final LocalStorage storage = new LocalStorage('*%^@!%%%K.dgW');
+final LocalStorage ratingCountStorage = new LocalStorage('ratingCount');

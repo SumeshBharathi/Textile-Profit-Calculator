@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'variables.dart';
 import 'dart:io';
 import 'HomeScreen.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingsScreen extends StatefulWidget {
   final Function refreshParentState;
@@ -53,494 +52,507 @@ class _SettingsScreenState extends State<SettingsScreen> {
       appBar: AppBar(
         title: Text('Settings'),
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          height: MediaQuery.of(context).size.height - 80,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Container(
-                          width: 200.0,
-                          child: Text(
-                            'Cloth Pic ',
-                            style: TextStyle(fontSize: 17.0),
-                          )),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Container(
-                        width: 100.0,
-                        height: 40.0,
-                        child: TextField(
-                          controller: clothPic,
-                          keyboardType: TextInputType.number,
-                          textInputAction: TextInputAction.next,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderSide: new BorderSide(color: Colors.blue),
-                            ),
-                            labelText: 'Pic',
-                          ),
-                          onChanged: (data) {},
-                          onSubmitted: (data) {
-                            FocusScope.of(context).nextFocus();
-                          },
-                        ),
+      body: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).unfocus();
+        },
+        child: SingleChildScrollView(
+          child: Container(
+            height: MediaQuery.of(context).size.height - 80,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Container(
+                            width: 200.0,
+                            child: Text(
+                              'Cloth Pic ',
+                              style: TextStyle(fontSize: 17.0),
+                            )),
                       ),
-                    )
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Container(
-                          width: 200.0,
-                          child: Text(
-                            'Cloth width (inch) ',
-                            style: TextStyle(fontSize: 17.0),
-                          )),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Container(
-                        width: 100.0,
-                        height: 40.0,
-                        child: TextField(
-                          controller: clothWidth,
-                          keyboardType: TextInputType.number,
-                          textInputAction: TextInputAction.next,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderSide: new BorderSide(color: Colors.blue),
-                            ),
-                            labelText: 'Inch',
-                          ),
-                          onChanged: (data) {},
-                          onSubmitted: (data) {
-                            FocusScope.of(context).nextFocus();
-                          },
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Container(
-                          width: 200.0,
-                          child: Text(
-                            'Loom Charge  ₹',
-                            style: TextStyle(fontSize: 17.0),
-                          )),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Container(
-                        width: 100.0,
-                        height: 40.0,
-                        child: TextField(
-                          controller: loomCharge,
-                          keyboardType: TextInputType.number,
-                          textInputAction: TextInputAction.next,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderSide: new BorderSide(color: Colors.blue),
-                            ),
-                            labelText: '₹',
-                          ),
-                          onChanged: (data) {},
-                          onSubmitted: (data) {
-                            FocusScope.of(context).nextFocus();
-                          },
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Container(
-                          width: 200.0,
-                          child: Text(
-                            'Other Charges  ₹',
-                            style: TextStyle(fontSize: 17.0),
-                          )),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Container(
-                        width: 100.0,
-                        height: 40.0,
-                        child: TextField(
-                          controller: otherCharges,
-                          keyboardType: TextInputType.number,
-                          textInputAction: TextInputAction.next,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderSide: new BorderSide(color: Colors.blue),
-                            ),
-                            labelText: '₹',
-                          ),
-                          onChanged: (data) {},
-                          onSubmitted: (data) {
-                            FocusScope.of(context).nextFocus();
-                          },
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Container(
-                          width: 200.0,
-                          child: Text(
-                            'Warp Bag weight',
-                            style: TextStyle(fontSize: 17.0),
-                          )),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Container(
-                        width: 100.0,
-                        height: 40.0,
-                        child: TextField(
-                          controller: bagWeightController,
-                          keyboardType: TextInputType.number,
-                          textInputAction: TextInputAction.next,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderSide: new BorderSide(color: Colors.blue),
-                            ),
-                            labelText: 'Kgs',
-                          ),
-                          onChanged: (data) {},
-                          onSubmitted: (data) {
-                            FocusScope.of(context).nextFocus();
-                          },
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Container(
-                          width: 200.0,
-                          child: Text(
-                            'Warp Count ',
-                            style: TextStyle(fontSize: 17.0),
-                          )),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Container(
-                        width: 100.0,
-                        height: 40.0,
-                        child: TextField(
-                          controller: warpCountController,
-                          keyboardType: TextInputType.number,
-                          textInputAction: TextInputAction.next,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderSide: new BorderSide(color: Colors.blue),
-                            ),
-                            labelText: 'Count',
-                          ),
-                          onChanged: (data) {},
-                          onSubmitted: (data) {
-                            FocusScope.of(context).nextFocus();
-                          },
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Container(
-                          width: 200.0,
-                          child: Text(
-                            'Warp (Total threads)',
-                            style: TextStyle(fontSize: 17.0),
-                          )),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Container(
-                        width: 100.0,
-                        height: 40.0,
-                        child: TextField(
-                          controller: warpTotThreadsController,
-                          keyboardType: TextInputType.number,
-                          textInputAction: TextInputAction.next,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderSide: new BorderSide(color: Colors.blue),
-                            ),
-                            labelText: 'Count',
-                          ),
-                          onChanged: (data) {},
-                          onSubmitted: (data) {
-                            FocusScope.of(context).nextFocus();
-                          },
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Container(
-                          width: 200.0,
-                          child: Text(
-                            'Sizing Charge  ₹',
-                            style: TextStyle(fontSize: 17.0),
-                          )),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Container(
-                        width: 100.0,
-                        height: 40.0,
-                        child: TextField(
-                          controller: sizingCharge,
-                          keyboardType: TextInputType.number,
-                          textInputAction: TextInputAction.next,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderSide: new BorderSide(color: Colors.blue),
-                            ),
-                            labelText: '₹',
-                          ),
-                          onChanged: (data) {},
-                          onSubmitted: (data) {
-                            FocusScope.of(context).nextFocus();
-                          },
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 20.0,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  GestureDetector(
-                    onTap: () {
-                      showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return AlertDialog(
-                            title: Text(
-                              'Reset to default ?',
-                              style: TextStyle(
-                                fontSize: 19.0,
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Container(
+                          width: 100.0,
+                          height: 40.0,
+                          child: TextField(
+                            enableInteractiveSelection: false,
+                            controller: clothPic,
+                            keyboardType: TextInputType.number,
+                            textInputAction: TextInputAction.next,
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderSide: new BorderSide(color: Colors.blue),
                               ),
-                              textAlign: TextAlign.start,
+                              labelText: 'Pic',
                             ),
-                            actions: <Widget>[
-                              TextButton(
-                                child: Text(
-                                  'Reset',
-                                  style: TextStyle(
-                                      fontSize: 16.0, color: Colors.red),
-                                ),
-                                onPressed: () {
-                                  setState(() {
-                                    warpBagWeight = 50;
-                                    warpSizingCharge = 19;
-                                    warpCount = 41;
-                                    warpTotalThreads = 3240;
-                                    weptThread = 3.086;
-
-                                    clothPicVar = 44;
-                                    clothWidthVar = 53;
-                                    loomChargeVar = 0.075;
-                                    otherChargesVar = 0.15;
-                                  });
-                                  list = [
-                                    {
-                                      'status': 'true',
-                                      'clothPicVar': clothPicVar,
-                                      'clothWidthVar': clothWidthVar,
-                                      'loomChargeVar': loomChargeVar,
-                                      'otherChargesVar': otherChargesVar,
-                                      'warpSizingCharge': warpSizingCharge,
-                                      'warpCount': warpCount,
-                                      'warpTotalThreads': warpTotalThreads,
-                                      'warpBagWeight': warpBagWeight
-                                    }
-                                  ];
-
-                                  saveValue(list);
-                                  widget.refreshParentState();
-
-                                  Navigator.of(context).pop();
-                                },
-                              ),
-                              TextButton(
-                                child: Text(
-                                  'Cancel',
-                                  style: TextStyle(
-                                      fontSize: 16.0, color: Colors.green),
-                                ),
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                },
-                              ),
-                            ],
-                          );
-                        },
-                      );
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.red[400],
-                        borderRadius: BorderRadius.circular(6.0),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Text('Reset',
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 17.0)),
-                      ),
-                    ),
+                            onChanged: (data) {},
+                            onSubmitted: (data) {
+                              FocusScope.of(context).unfocus();
+                            },
+                          ),
+                        ),
+                      )
+                    ],
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        clothPicVar = double.parse(clothPic.text);
-                        clothWidthVar = double.parse(clothWidth.text);
-                        loomChargeVar = double.parse(loomCharge.text);
-                        otherChargesVar = double.parse(otherCharges.text);
-                        warpSizingCharge = double.parse(sizingCharge.text);
-                        warpCount = double.parse(warpCountController.text);
-                        warpTotalThreads =
-                            double.parse(warpTotThreadsController.text);
-                        warpBagWeight = double.parse(bagWeightController.text);
-                        if (list != null) {
-                          list.clear();
-                        }
-
-                        list = [
-                          {
-                            'status': 'true',
-                            'clothPicVar': clothPicVar,
-                            'clothWidthVar': clothWidthVar,
-                            'loomChargeVar': loomChargeVar,
-                            'otherChargesVar': otherChargesVar,
-                            'warpSizingCharge': warpSizingCharge,
-                            'warpCount': warpCount,
-                            'warpTotalThreads': warpTotalThreads,
-                            'warpBagWeight': warpBagWeight
-                          }
-                        ];
-
-                        saveValue(list);
-                        FocusScope.of(context).unfocus();
-
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Container(
+                            width: 200.0,
+                            child: Text(
+                              'Cloth width (inch) ',
+                              style: TextStyle(fontSize: 17.0),
+                            )),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Container(
+                          width: 100.0,
+                          height: 40.0,
+                          child: TextField(
+                            enableInteractiveSelection: false,
+                            controller: clothWidth,
+                            keyboardType: TextInputType.number,
+                            textInputAction: TextInputAction.next,
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderSide: new BorderSide(color: Colors.blue),
+                              ),
+                              labelText: 'Inch',
+                            ),
+                            onChanged: (data) {},
+                            onSubmitted: (data) {
+                              FocusScope.of(context).unfocus();
+                            },
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Container(
+                            width: 200.0,
+                            child: Text(
+                              'Loom Charge  ₹',
+                              style: TextStyle(fontSize: 17.0),
+                            )),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Container(
+                          width: 100.0,
+                          height: 40.0,
+                          child: TextField(
+                            enableInteractiveSelection: false,
+                            controller: loomCharge,
+                            keyboardType: TextInputType.number,
+                            textInputAction: TextInputAction.next,
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderSide: new BorderSide(color: Colors.blue),
+                              ),
+                              labelText: '₹',
+                            ),
+                            onChanged: (data) {},
+                            onSubmitted: (data) {
+                              FocusScope.of(context).unfocus();
+                            },
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Container(
+                            width: 200.0,
+                            child: Text(
+                              'Other Charges  ₹',
+                              style: TextStyle(fontSize: 17.0),
+                            )),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Container(
+                          width: 100.0,
+                          height: 40.0,
+                          child: TextField(
+                            enableInteractiveSelection: false,
+                            controller: otherCharges,
+                            keyboardType: TextInputType.number,
+                            textInputAction: TextInputAction.next,
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderSide: new BorderSide(color: Colors.blue),
+                              ),
+                              labelText: '₹',
+                            ),
+                            onChanged: (data) {},
+                            onSubmitted: (data) {
+                              FocusScope.of(context).unfocus();
+                            },
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                // Padding(
+                //   padding: const EdgeInsets.all(4.0),
+                //   child: Row(
+                //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                //     children: <Widget>[
+                //       Padding(
+                //         padding: const EdgeInsets.all(4.0),
+                //         child: Container(
+                //             width: 200.0,
+                //             child: Text(
+                //               'Warp Bag weight',
+                //               style: TextStyle(fontSize: 17.0),
+                //             )),
+                //       ),
+                //       Padding(
+                //         padding: const EdgeInsets.all(4.0),
+                //         child: Container(
+                //           width: 100.0,
+                //           height: 40.0,
+                //           child: TextField(
+                //             controller: bagWeightController,
+                //             keyboardType: TextInputType.number,
+                //             textInputAction: TextInputAction.next,
+                //             decoration: InputDecoration(
+                //               border: OutlineInputBorder(
+                //                 borderSide: new BorderSide(color: Colors.blue),
+                //               ),
+                //               labelText: 'Kgs',
+                //             ),
+                //             onChanged: (data) {},
+                //             onSubmitted: (data) {
+                //               FocusScope.of(context).nextFocus();
+                //             },
+                //           ),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Container(
+                            width: 200.0,
+                            child: Text(
+                              'Warp Count ',
+                              style: TextStyle(fontSize: 17.0),
+                            )),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Container(
+                          width: 100.0,
+                          height: 40.0,
+                          child: TextField(
+                            enableInteractiveSelection: false,
+                            controller: warpCountController,
+                            keyboardType: TextInputType.number,
+                            textInputAction: TextInputAction.next,
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderSide: new BorderSide(color: Colors.blue),
+                              ),
+                              labelText: 'Count',
+                            ),
+                            onChanged: (data) {},
+                            onSubmitted: (data) {
+                              FocusScope.of(context).unfocus();
+                            },
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Container(
+                            width: 200.0,
+                            child: Text(
+                              'Warp (Total threads)',
+                              style: TextStyle(fontSize: 17.0),
+                            )),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Container(
+                          width: 100.0,
+                          height: 40.0,
+                          child: TextField(
+                            enableInteractiveSelection: false,
+                            controller: warpTotThreadsController,
+                            keyboardType: TextInputType.number,
+                            textInputAction: TextInputAction.next,
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderSide: new BorderSide(color: Colors.blue),
+                              ),
+                              labelText: 'Count',
+                            ),
+                            onChanged: (data) {},
+                            onSubmitted: (data) {
+                              FocusScope.of(context).unfocus();
+                            },
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Container(
+                            width: 200.0,
+                            child: Text(
+                              'Sizing Charge  ₹',
+                              style: TextStyle(fontSize: 17.0),
+                            )),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Container(
+                          width: 100.0,
+                          height: 40.0,
+                          child: TextField(
+                            enableInteractiveSelection: false,
+                            controller: sizingCharge,
+                            keyboardType: TextInputType.number,
+                            textInputAction: TextInputAction.next,
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderSide: new BorderSide(color: Colors.blue),
+                              ),
+                              labelText: '₹',
+                            ),
+                            onChanged: (data) {},
+                            onSubmitted: (data) {
+                              FocusScope.of(context).unfocus();
+                            },
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 20.0,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    GestureDetector(
+                      onTap: () {
                         showDialog(
                           context: context,
                           builder: (BuildContext context) {
                             return AlertDialog(
                               title: Text(
-                                'Saved successfully !',
+                                'Reset to default ?',
                                 style: TextStyle(
-                                  fontSize: 20.0,
+                                  fontSize: 19.0,
                                 ),
-                                textAlign: TextAlign.center,
+                                textAlign: TextAlign.start,
                               ),
                               actions: <Widget>[
-                                FlatButton(
+                                TextButton(
                                   child: Text(
-                                    'Close',
+                                    'Reset',
                                     style: TextStyle(
-                                        fontSize: 16.0,
-                                        color: Colors.blueAccent),
+                                        fontSize: 16.0, color: Colors.red),
                                   ),
                                   onPressed: () {
+                                    setState(() {
+                                      warpBagWeight = 50;
+                                      warpSizingCharge = 19;
+                                      warpCount = 41;
+                                      warpTotalThreads = 3240;
+                                      weptThread = 3.086;
+
+                                      clothPicVar = 44;
+                                      clothWidthVar = 53;
+                                      loomChargeVar = 0.075;
+                                      otherChargesVar = 0.15;
+                                    });
+                                    list = [
+                                      {
+                                        'status': 'true',
+                                        'clothPicVar': clothPicVar,
+                                        'clothWidthVar': clothWidthVar,
+                                        'loomChargeVar': loomChargeVar,
+                                        'otherChargesVar': otherChargesVar,
+                                        'warpSizingCharge': warpSizingCharge,
+                                        'warpCount': warpCount,
+                                        'warpTotalThreads': warpTotalThreads,
+                                        'warpBagWeight': warpBagWeight
+                                      }
+                                    ];
+
+                                    saveValue(list);
                                     widget.refreshParentState();
+
                                     Navigator.of(context).pop();
                                   },
-                                )
+                                ),
+                                TextButton(
+                                  child: Text(
+                                    'Cancel',
+                                    style: TextStyle(
+                                        fontSize: 16.0, color: Colors.green),
+                                  ),
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                ),
                               ],
                             );
                           },
                         );
-                      });
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.blue[400],
-                        borderRadius: BorderRadius.circular(6.0),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Text(' Save Changes ',
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 17.0)),
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.red[400],
+                          borderRadius: BorderRadius.circular(6.0),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Text('Reset',
+                              style: TextStyle(
+                                  color: Colors.white, fontSize: 17.0)),
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 20.0,
-              ),
-            ],
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          clothPicVar = double.parse(clothPic.text);
+                          clothWidthVar = double.parse(clothWidth.text);
+                          loomChargeVar = double.parse(loomCharge.text);
+                          otherChargesVar = double.parse(otherCharges.text);
+                          warpSizingCharge = double.parse(sizingCharge.text);
+                          warpCount = double.parse(warpCountController.text);
+                          warpTotalThreads =
+                              double.parse(warpTotThreadsController.text);
+                          warpBagWeight =
+                              double.parse(bagWeightController.text);
+                          if (list != null) {
+                            list.clear();
+                          }
+
+                          list = [
+                            {
+                              'status': 'true',
+                              'clothPicVar': clothPicVar,
+                              'clothWidthVar': clothWidthVar,
+                              'loomChargeVar': loomChargeVar,
+                              'otherChargesVar': otherChargesVar,
+                              'warpSizingCharge': warpSizingCharge,
+                              'warpCount': warpCount,
+                              'warpTotalThreads': warpTotalThreads,
+                              'warpBagWeight': warpBagWeight
+                            }
+                          ];
+
+                          saveValue(list);
+                          FocusScope.of(context).unfocus();
+
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                title: Text(
+                                  'Saved successfully !',
+                                  style: TextStyle(
+                                    fontSize: 20.0,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                                actions: <Widget>[
+                                  FlatButton(
+                                    child: Text(
+                                      'Close',
+                                      style: TextStyle(
+                                          fontSize: 16.0,
+                                          color: Colors.blueAccent),
+                                    ),
+                                    onPressed: () {
+                                      widget.refreshParentState();
+                                      Navigator.of(context).pop();
+                                    },
+                                  )
+                                ],
+                              );
+                            },
+                          );
+                        });
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.blue[400],
+                          borderRadius: BorderRadius.circular(6.0),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Text(' Save Changes ',
+                              style: TextStyle(
+                                  color: Colors.white, fontSize: 17.0)),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 20.0,
+                ),
+              ],
+            ),
           ),
         ),
       ),
