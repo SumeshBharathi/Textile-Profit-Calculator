@@ -269,568 +269,564 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return ScrollConfiguration(
-      behavior: ScrollBehavior()
-        ..buildViewportChrome(context, null, AxisDirection.down),
-      child: SingleChildScrollView(
-        child: Container(
-          height: MediaQuery.of(context).size.height,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(3, 3, 3, 0),
-                child: Container(
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(3)),
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Row(
-                      children: [
-                        Column(
-                          children: [
-                            Container(
-                              width: MediaQuery.of(context).size.width - 28,
-                              child: Padding(
-                                padding: const EdgeInsets.all(3.0),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text('Warp Rate / Kg'),
-                                    Container(
-                                      width: 200,
-                                      height: 35,
-                                      child: TextField(
-                                        controller: warpKgC,
-                                        enableInteractiveSelection: false,
-                                        onChanged: (data) {
-                                          warpKg = double.parse(data);
-                                        },
-                                        keyboardType: TextInputType.number,
-                                        textInputAction: TextInputAction.next,
-                                        onSubmitted: (data) {
-                                          FocusScope.of(context).unfocus();
-                                        },
-                                        decoration: InputDecoration(
-                                          border: OutlineInputBorder(
-                                            borderSide: new BorderSide(
-                                                color: Colors.blue),
-                                          ),
-                                          labelText: 'Warp Rate / Kg',
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Container(
-                              width: MediaQuery.of(context).size.width - 28,
-                              child: Padding(
-                                padding: const EdgeInsets.all(3.0),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text('Sizing charge'),
-                                    Container(
-                                      width: 200,
-                                      height: 35,
-                                      child: TextField(
-                                        controller: sizChargeC,
-                                        enableInteractiveSelection: false,
-                                        onChanged: (data) {
-                                          sizCharge = double.parse(data);
-                                        },
-                                        keyboardType: TextInputType.number,
-                                        textInputAction: TextInputAction.next,
-                                        onSubmitted: (data) {
-                                          FocusScope.of(context).unfocus();
-                                        },
-                                        decoration: InputDecoration(
-                                          border: OutlineInputBorder(
-                                            borderSide: new BorderSide(
-                                                color: Colors.blue),
-                                          ),
-                                          labelText: 'Sizing charge',
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Container(
-                              width: MediaQuery.of(context).size.width - 28,
-                              child: Padding(
-                                padding: const EdgeInsets.all(3.0),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text('இழை'),
-                                    Container(
-                                      width: 200,
-                                      height: 35,
-                                      child: TextField(
-                                        controller: threadC,
-                                        enableInteractiveSelection: false,
-                                        onChanged: (data) {
-                                          thread = int.parse(data);
-                                        },
-                                        keyboardType: TextInputType.number,
-                                        textInputAction: TextInputAction.next,
-                                        onSubmitted: (data) {
-                                          FocusScope.of(context).unfocus();
-                                        },
-                                        decoration: InputDecoration(
-                                          border: OutlineInputBorder(
-                                            borderSide: new BorderSide(
-                                                color: Colors.blue),
-                                          ),
-                                          labelText: 'இழை',
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Container(
-                              width: MediaQuery.of(context).size.width - 28,
-                              child: Padding(
-                                padding: const EdgeInsets.all(3.0),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text('Count'),
-                                    Container(
-                                      width: 200,
-                                      height: 35,
-                                      child: TextField(
-                                        controller: countC,
-                                        enableInteractiveSelection: false,
-                                        onChanged: (data) {
-                                          count = double.parse(data);
-                                        },
-                                        keyboardType: TextInputType.number,
-                                        textInputAction: TextInputAction.next,
-                                        onSubmitted: (data) {
-                                          FocusScope.of(context).unfocus();
-                                        },
-                                        decoration: InputDecoration(
-                                          border: OutlineInputBorder(
-                                            borderSide: new BorderSide(
-                                                color: Colors.blue),
-                                          ),
-                                          labelText: 'Count',
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Container(
-                              width: MediaQuery.of(context).size.width - 28,
-                              child: Padding(
-                                padding: const EdgeInsets.all(3.0),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text('Tape length'),
-                                    Container(
-                                      width: 200,
-                                      height: 35,
-                                      child: TextField(
-                                        controller: tapeLengthC,
-                                        enableInteractiveSelection: false,
-                                        onChanged: (data) {
-                                          tapeLength = double.parse(data);
-                                        },
-                                        keyboardType: TextInputType.number,
-                                        textInputAction: TextInputAction.next,
-                                        onSubmitted: (data) {
-                                          FocusScope.of(context).unfocus();
-                                        },
-                                        decoration: InputDecoration(
-                                          border: OutlineInputBorder(
-                                            borderSide: new BorderSide(
-                                                color: Colors.blue),
-                                          ),
-                                          labelText: 'Tape length',
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(3, 3, 3, 0),
-                child: Container(
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(3)),
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Row(
-                      children: [
-                        Column(
-                          children: [
-                            Container(
-                              width: MediaQuery.of(context).size.width - 28,
-                              child: Padding(
-                                padding: const EdgeInsets.all(3.0),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text('Wept Rate / Kg'),
-                                    Container(
-                                      width: 200,
-                                      height: 35,
-                                      child: TextField(
-                                        controller: weptKgC,
-                                        enableInteractiveSelection: false,
-                                        onChanged: (data) {
-                                          weptKg = double.parse(data);
-                                        },
-                                        keyboardType: TextInputType.number,
-                                        textInputAction: TextInputAction.next,
-                                        onSubmitted: (data) {
-                                          FocusScope.of(context).unfocus();
-                                        },
-                                        decoration: InputDecoration(
-                                          border: OutlineInputBorder(
-                                            borderSide: new BorderSide(
-                                                color: Colors.blue),
-                                          ),
-                                          labelText: 'Wept Rate / Kg',
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Container(
-                              width: MediaQuery.of(context).size.width - 28,
-                              child: Padding(
-                                padding: const EdgeInsets.all(3.0),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text('Bag weight Kg'),
-                                    Container(
-                                      width: 200,
-                                      height: 35,
-                                      child: TextField(
-                                        controller: bagKgC,
-                                        enableInteractiveSelection: false,
-                                        onChanged: (data) {
-                                          bagKg = double.parse(data);
-                                        },
-                                        keyboardType: TextInputType.number,
-                                        textInputAction: TextInputAction.next,
-                                        onSubmitted: (data) {
-                                          FocusScope.of(context).unfocus();
-                                        },
-                                        decoration: InputDecoration(
-                                          border: OutlineInputBorder(
-                                            borderSide: new BorderSide(
-                                                color: Colors.blue),
-                                          ),
-                                          labelText: 'Bag weight ',
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Container(
-                              width: MediaQuery.of(context).size.width - 28,
-                              child: Padding(
-                                padding: const EdgeInsets.all(3.0),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text('Pic'),
-                                    Container(
-                                      width: 200,
-                                      height: 35,
-                                      child: TextField(
-                                        controller: picC,
-                                        enableInteractiveSelection: false,
-                                        onChanged: (data) {
-                                          pic = int.parse(data);
-                                        },
-                                        keyboardType: TextInputType.number,
-                                        textInputAction: TextInputAction.next,
-                                        onSubmitted: (data) {
-                                          FocusScope.of(context).unfocus();
-                                        },
-                                        decoration: InputDecoration(
-                                          border: OutlineInputBorder(
-                                            borderSide: new BorderSide(
-                                                color: Colors.blue),
-                                          ),
-                                          labelText: 'Pic',
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Container(
-                              width: MediaQuery.of(context).size.width - 28,
-                              child: Padding(
-                                padding: const EdgeInsets.all(3.0),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text('Width'),
-                                    Container(
-                                      width: 200,
-                                      height: 35,
-                                      child: TextField(
-                                        controller: widthC,
-                                        enableInteractiveSelection: false,
-                                        onChanged: (data) {
-                                          width = double.parse(data);
-                                        },
-                                        keyboardType: TextInputType.number,
-                                        textInputAction: TextInputAction.next,
-                                        onSubmitted: (data) {
-                                          FocusScope.of(context).unfocus();
-                                        },
-                                        decoration: InputDecoration(
-                                          border: OutlineInputBorder(
-                                            borderSide: new BorderSide(
-                                                color: Colors.blue),
-                                          ),
-                                          labelText: 'Width',
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Container(
-                              width: MediaQuery.of(context).size.width - 28,
-                              child: Padding(
-                                padding: const EdgeInsets.all(3.0),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text('Wept thread'),
-                                    Container(
-                                      width: 200,
-                                      height: 35,
-                                      child: TextField(
-                                        controller: weptThreadC,
-                                        enableInteractiveSelection: false,
-                                        onChanged: (data) {
-                                          weptThread = int.parse(data);
-                                        },
-                                        keyboardType: TextInputType.number,
-                                        textInputAction: TextInputAction.next,
-                                        onSubmitted: (data) {
-                                          FocusScope.of(context).unfocus();
-                                        },
-                                        decoration: InputDecoration(
-                                          border: OutlineInputBorder(
-                                            borderSide: new BorderSide(
-                                                color: Colors.blue),
-                                          ),
-                                          labelText: 'Wept thread',
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(3, 3, 3, 0),
-                child: Container(
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(3)),
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Row(
-                      children: [
-                        Column(
-                          children: [
-                            Container(
-                              width: MediaQuery.of(context).size.width - 28,
-                              child: Padding(
-                                padding: const EdgeInsets.all(3.0),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text('Labour charge'),
-                                    Container(
-                                      width: 200,
-                                      height: 35,
-                                      child: TextField(
-                                        controller: labourChargeC,
-                                        enableInteractiveSelection: false,
-                                        onChanged: (data) {
-                                          labourCharge = double.parse(data);
-                                        },
-                                        keyboardType: TextInputType.number,
-                                        textInputAction: TextInputAction.next,
-                                        onSubmitted: (data) {
-                                          FocusScope.of(context).unfocus();
-                                        },
-                                        decoration: InputDecoration(
-                                          border: OutlineInputBorder(
-                                            borderSide: new BorderSide(
-                                                color: Colors.blue),
-                                          ),
-                                          labelText: 'Labour charge / pic',
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Container(
-                              width: MediaQuery.of(context).size.width - 28,
-                              child: Padding(
-                                padding: const EdgeInsets.all(3.0),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text('Other charges'),
-                                    Container(
-                                      width: 200,
-                                      height: 35,
-                                      child: TextField(
-                                        controller: otherChargeC,
-                                        enableInteractiveSelection: false,
-                                        onChanged: (data) {
-                                          otherCharge = double.parse(data);
-                                        },
-                                        keyboardType: TextInputType.number,
-                                        textInputAction: TextInputAction.next,
-                                        onSubmitted: (data) {
-                                          FocusScope.of(context).unfocus();
-                                        },
-                                        decoration: InputDecoration(
-                                          border: OutlineInputBorder(
-                                            borderSide: new BorderSide(
-                                                color: Colors.blue),
-                                          ),
-                                          labelText: 'Other charges',
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () async {
-                  await storage.ready;
-
-                  storage.setItem('warpKg', warpKg);
-                  storage.setItem('sizCharge', sizCharge);
-                  storage.setItem('thread', thread);
-                  storage.setItem('count', count);
-                  storage.setItem('tapeLength', tapeLength);
-                  storage.setItem('weptKg', weptKg);
-                  storage.setItem('bagKg', bagKg);
-                  storage.setItem('pic', pic);
-                  storage.setItem('width', width);
-                  storage.setItem('weptThread', weptThread);
-                  storage.setItem('labourCharge', labourCharge);
-                  storage.setItem('otherCharge', otherCharge);
-
-                  var warp =
-                      ((((((warpKg + sizCharge) * 0.639) * thread) / count) *
-                                  tapeLength) /
-                              43) /
-                          1000;
-
-                  var wept = (((weptKg * bagKg) * ((pic * width) / 768)) /
-                          weptThread) /
-                      10;
-
-                  var tot = (warp + wept + (labourCharge * pic) + otherCharge)
-                      .toStringAsFixed(2);
-                  print(warp);
-                  print(wept);
-                  print(tot);
-
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => ResultPage(
-                              tot,
-                              warp.toStringAsFixed(2),
-                              wept.toStringAsFixed(2),
-                              labourCharge.toStringAsFixed(3),
-                              otherCharge.toStringAsFixed(2))));
-                },
+    return SingleChildScrollView(
+      child: Container(
+        height: MediaQuery.of(context).size.height - 80,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(3, 3, 3, 0),
+              child: Container(
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black),
+                    borderRadius: BorderRadius.circular(3)),
                 child: Padding(
-                  padding: const EdgeInsets.all(3.0),
-                  child: Container(
-                    width: 150,
-                    height: 50,
-                    decoration: BoxDecoration(
-                        color: Colors.blueAccent,
-                        borderRadius: BorderRadius.circular(5)),
-                    child: Center(
-                        child: Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Text(
-                        'Calculate',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    )),
+                  padding: const EdgeInsets.all(10.0),
+                  child: Row(
+                    children: [
+                      Column(
+                        children: [
+                          Container(
+                            width: MediaQuery.of(context).size.width - 28,
+                            child: Padding(
+                              padding: const EdgeInsets.all(3.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text('Warp Rate / Kg'),
+                                  Container(
+                                    width: 200,
+                                    height: 35,
+                                    child: TextField(
+                                      controller: warpKgC,
+                                      enableInteractiveSelection: false,
+                                      onChanged: (data) {
+                                        warpKg = double.parse(data);
+                                      },
+                                      keyboardType: TextInputType.number,
+                                      textInputAction: TextInputAction.next,
+                                      onSubmitted: (data) {
+                                        FocusScope.of(context).unfocus();
+                                      },
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(
+                                          borderSide: new BorderSide(
+                                              color: Colors.blue),
+                                        ),
+                                        labelText: 'Warp Rate / Kg',
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width - 28,
+                            child: Padding(
+                              padding: const EdgeInsets.all(3.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text('Sizing charge'),
+                                  Container(
+                                    width: 200,
+                                    height: 35,
+                                    child: TextField(
+                                      controller: sizChargeC,
+                                      enableInteractiveSelection: false,
+                                      onChanged: (data) {
+                                        sizCharge = double.parse(data);
+                                      },
+                                      keyboardType: TextInputType.number,
+                                      textInputAction: TextInputAction.next,
+                                      onSubmitted: (data) {
+                                        FocusScope.of(context).unfocus();
+                                      },
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(
+                                          borderSide: new BorderSide(
+                                              color: Colors.blue),
+                                        ),
+                                        labelText: 'Sizing charge',
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width - 28,
+                            child: Padding(
+                              padding: const EdgeInsets.all(3.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text('Threads'),
+                                  Container(
+                                    width: 200,
+                                    height: 35,
+                                    child: TextField(
+                                      controller: threadC,
+                                      enableInteractiveSelection: false,
+                                      onChanged: (data) {
+                                        thread = int.parse(data);
+                                      },
+                                      keyboardType: TextInputType.number,
+                                      textInputAction: TextInputAction.next,
+                                      onSubmitted: (data) {
+                                        FocusScope.of(context).unfocus();
+                                      },
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(
+                                          borderSide: new BorderSide(
+                                              color: Colors.blue),
+                                        ),
+                                        labelText: 'Threads',
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width - 28,
+                            child: Padding(
+                              padding: const EdgeInsets.all(3.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text('Count'),
+                                  Container(
+                                    width: 200,
+                                    height: 35,
+                                    child: TextField(
+                                      controller: countC,
+                                      enableInteractiveSelection: false,
+                                      onChanged: (data) {
+                                        count = double.parse(data);
+                                      },
+                                      keyboardType: TextInputType.number,
+                                      textInputAction: TextInputAction.next,
+                                      onSubmitted: (data) {
+                                        FocusScope.of(context).unfocus();
+                                      },
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(
+                                          borderSide: new BorderSide(
+                                              color: Colors.blue),
+                                        ),
+                                        labelText: 'Count',
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width - 28,
+                            child: Padding(
+                              padding: const EdgeInsets.all(3.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text('Tape length'),
+                                  Container(
+                                    width: 200,
+                                    height: 35,
+                                    child: TextField(
+                                      controller: tapeLengthC,
+                                      enableInteractiveSelection: false,
+                                      onChanged: (data) {
+                                        tapeLength = double.parse(data);
+                                      },
+                                      keyboardType: TextInputType.number,
+                                      textInputAction: TextInputAction.next,
+                                      onSubmitted: (data) {
+                                        FocusScope.of(context).unfocus();
+                                      },
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(
+                                          borderSide: new BorderSide(
+                                              color: Colors.blue),
+                                        ),
+                                        labelText: 'Tape length',
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
                   ),
                 ),
-              )
-            ],
-          ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(3, 3, 3, 0),
+              child: Container(
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black),
+                    borderRadius: BorderRadius.circular(3)),
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Row(
+                    children: [
+                      Column(
+                        children: [
+                          Container(
+                            width: MediaQuery.of(context).size.width - 28,
+                            child: Padding(
+                              padding: const EdgeInsets.all(3.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text('Wept Rate / Kg'),
+                                  Container(
+                                    width: 200,
+                                    height: 35,
+                                    child: TextField(
+                                      controller: weptKgC,
+                                      enableInteractiveSelection: false,
+                                      onChanged: (data) {
+                                        weptKg = double.parse(data);
+                                      },
+                                      keyboardType: TextInputType.number,
+                                      textInputAction: TextInputAction.next,
+                                      onSubmitted: (data) {
+                                        FocusScope.of(context).unfocus();
+                                      },
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(
+                                          borderSide: new BorderSide(
+                                              color: Colors.blue),
+                                        ),
+                                        labelText: 'Wept Rate / Kg',
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width - 28,
+                            child: Padding(
+                              padding: const EdgeInsets.all(3.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text('Bag weight Kg'),
+                                  Container(
+                                    width: 200,
+                                    height: 35,
+                                    child: TextField(
+                                      controller: bagKgC,
+                                      enableInteractiveSelection: false,
+                                      onChanged: (data) {
+                                        bagKg = double.parse(data);
+                                      },
+                                      keyboardType: TextInputType.number,
+                                      textInputAction: TextInputAction.next,
+                                      onSubmitted: (data) {
+                                        FocusScope.of(context).unfocus();
+                                      },
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(
+                                          borderSide: new BorderSide(
+                                              color: Colors.blue),
+                                        ),
+                                        labelText: 'Bag weight ',
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width - 28,
+                            child: Padding(
+                              padding: const EdgeInsets.all(3.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text('Pic'),
+                                  Container(
+                                    width: 200,
+                                    height: 35,
+                                    child: TextField(
+                                      controller: picC,
+                                      enableInteractiveSelection: false,
+                                      onChanged: (data) {
+                                        pic = int.parse(data);
+                                      },
+                                      keyboardType: TextInputType.number,
+                                      textInputAction: TextInputAction.next,
+                                      onSubmitted: (data) {
+                                        FocusScope.of(context).unfocus();
+                                      },
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(
+                                          borderSide: new BorderSide(
+                                              color: Colors.blue),
+                                        ),
+                                        labelText: 'Pic',
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width - 28,
+                            child: Padding(
+                              padding: const EdgeInsets.all(3.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text('Width'),
+                                  Container(
+                                    width: 200,
+                                    height: 35,
+                                    child: TextField(
+                                      controller: widthC,
+                                      enableInteractiveSelection: false,
+                                      onChanged: (data) {
+                                        width = double.parse(data);
+                                      },
+                                      keyboardType: TextInputType.number,
+                                      textInputAction: TextInputAction.next,
+                                      onSubmitted: (data) {
+                                        FocusScope.of(context).unfocus();
+                                      },
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(
+                                          borderSide: new BorderSide(
+                                              color: Colors.blue),
+                                        ),
+                                        labelText: 'Width',
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width - 28,
+                            child: Padding(
+                              padding: const EdgeInsets.all(3.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text('Wept thread'),
+                                  Container(
+                                    width: 200,
+                                    height: 35,
+                                    child: TextField(
+                                      controller: weptThreadC,
+                                      enableInteractiveSelection: false,
+                                      onChanged: (data) {
+                                        weptThread = int.parse(data);
+                                      },
+                                      keyboardType: TextInputType.number,
+                                      textInputAction: TextInputAction.next,
+                                      onSubmitted: (data) {
+                                        FocusScope.of(context).unfocus();
+                                      },
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(
+                                          borderSide: new BorderSide(
+                                              color: Colors.blue),
+                                        ),
+                                        labelText: 'Wept thread',
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(3, 3, 3, 0),
+              child: Container(
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black),
+                    borderRadius: BorderRadius.circular(3)),
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Row(
+                    children: [
+                      Column(
+                        children: [
+                          Container(
+                            width: MediaQuery.of(context).size.width - 28,
+                            child: Padding(
+                              padding: const EdgeInsets.all(3.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text('Labour charge / pic'),
+                                  Container(
+                                    width: 200,
+                                    height: 35,
+                                    child: TextField(
+                                      controller: labourChargeC,
+                                      enableInteractiveSelection: false,
+                                      onChanged: (data) {
+                                        labourCharge = double.parse(data);
+                                      },
+                                      keyboardType: TextInputType.number,
+                                      textInputAction: TextInputAction.next,
+                                      onSubmitted: (data) {
+                                        FocusScope.of(context).unfocus();
+                                      },
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(
+                                          borderSide: new BorderSide(
+                                              color: Colors.blue),
+                                        ),
+                                        labelText: 'Labour charge / pic',
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width - 28,
+                            child: Padding(
+                              padding: const EdgeInsets.all(3.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text('Other charges'),
+                                  Container(
+                                    width: 200,
+                                    height: 35,
+                                    child: TextField(
+                                      controller: otherChargeC,
+                                      enableInteractiveSelection: false,
+                                      onChanged: (data) {
+                                        otherCharge = double.parse(data);
+                                      },
+                                      keyboardType: TextInputType.number,
+                                      textInputAction: TextInputAction.next,
+                                      onSubmitted: (data) {
+                                        FocusScope.of(context).unfocus();
+                                      },
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(
+                                          borderSide: new BorderSide(
+                                              color: Colors.blue),
+                                        ),
+                                        labelText: 'Other charges',
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            GestureDetector(
+              onTap: () async {
+                await storage.ready;
+
+                storage.setItem('warpKg', warpKg);
+                storage.setItem('sizCharge', sizCharge);
+                storage.setItem('thread', thread);
+                storage.setItem('count', count);
+                storage.setItem('tapeLength', tapeLength);
+                storage.setItem('weptKg', weptKg);
+                storage.setItem('bagKg', bagKg);
+                storage.setItem('pic', pic);
+                storage.setItem('width', width);
+                storage.setItem('weptThread', weptThread);
+                storage.setItem('labourCharge', labourCharge);
+                storage.setItem('otherCharge', otherCharge);
+
+                var warp =
+                    ((((((warpKg + sizCharge) * 0.639) * thread) / count) *
+                                tapeLength) /
+                            43) /
+                        1000;
+
+                var wept =
+                    (((weptKg * bagKg) * ((pic * width) / 768)) / weptThread) /
+                        10;
+
+                var tot = (warp + wept + (labourCharge * pic) + otherCharge)
+                    .toStringAsFixed(2);
+                print(warp);
+                print(wept);
+                print(tot);
+
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ResultPage(
+                            tot,
+                            warp.toStringAsFixed(2),
+                            wept.toStringAsFixed(2),
+                            labourCharge.toStringAsFixed(3),
+                            otherCharge.toStringAsFixed(2))));
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(3.0),
+                child: Container(
+                  width: 150,
+                  height: 50,
+                  decoration: BoxDecoration(
+                      color: Colors.blueAccent,
+                      borderRadius: BorderRadius.circular(5)),
+                  child: Center(
+                      child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Text(
+                      'Calculate',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  )),
+                ),
+              ),
+            )
+          ],
         ),
       ),
     );
@@ -869,7 +865,7 @@ class _ResultPageState extends State<ResultPage> {
         children: [
           ConstrainedBox(
             constraints: new BoxConstraints(
-              maxHeight: 500,
+              maxHeight: 370,
               minWidth: MediaQuery.of(context).size.width,
             ),
             child: Column(
@@ -994,6 +990,9 @@ class _ResultPageState extends State<ResultPage> {
                 )
               ],
             ),
+          ),
+          SizedBox(
+            height: 60,
           ),
           Expanded(
             child: Padding(
